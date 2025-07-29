@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PCI Admission - Enroll Now</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: white;
+      overflow-x: hidden;
+    }
+    header {
+      padding: 20px 40px;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      color: #00ffff;
+      font-weight: bold;
+      font-size: 24px;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    nav ul li a:hover {
+      color: #00ffff;
+    }
+
+    /* Hamburger */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 4px;
+      margin-left: 20px;
+    }
+    .menu-toggle span {
+      height: 3px;
+      width: 25px;
+      background: #00ffff;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: flex;
+      }
+      nav ul {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        gap: 0;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.4s ease-in-out;
+      }
+      nav ul.open {
+        max-height: 500px;
+      }
+      nav ul li {
+        padding: 15px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+      }
+    }
+
+    .hero {
+      height: auto;
+      min-height: 80vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+    }
+    .hero h1 {
+      font-size: 48px;
+      color: #00ffff;
+    }
+    .hero p {
+      font-size: 20px;
+      margin-top: 10px;
+    }
+    .hero-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 40px;
+    }
+    .card {
+      width: 280px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px solid #00ffff;
+      border-radius: 15px;
+      padding: 20px;
+      backdrop-filter: blur(10px);
+      transition: 0.4s;
+      box-shadow: 0 0 15px rgba(0,255,255,0.2);
+    }
+    .card:hover {
+      transform: translateY(-10px) scale(1.03);
+      background: rgba(0, 255, 255, 0.1);
+    }
+    .card h3 {
+      color: #00ffff;
+      margin-bottom: 10px;
+    }
+    .card p {
+      color: #eee;
+      font-size: 14px;
+    }
+    .section {
+      padding: 60px 20px;
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+    }
+    .section h2 {
+      font-size: 36px;
+      color: #00ffff;
+      margin-bottom: 20px;
+    }
+    .form-box {
+      background: rgba(255,255,255,0.1);
+      padding: 30px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 20px rgba(0,255,255,0.2);
+      text-align: left;
+    }
+    .form-box input,
+    .form-box select,
+    .form-box textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 8px;
+      outline: none;
+      font-size: 14px;
+    }
+    .form-box input[type="file"] {
+      background: #fff;
+    }
+    .form-box button {
+      background: #00ffff;
+      color: #000;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+    .form-box button:hover {
+      background: #00cccc;
+    }
+    .success-msg {
+      display: none;
+      margin-top: 20px;
+      padding: 15px;
+      background: rgba(0, 255, 150, 0.1);
+      color: #00ffae;
+      border: 1px solid #00ffae;
+      border-radius: 10px;
+    }
+    .sticky-cta {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #00ffff;
+      color: black;
+      padding: 12px 20px;
+      text-align: center;
+      font-weight: bold;
+      z-index: 999;
+      display: none;
+    }
+    footer {
+      background: #111;
+      color: #bbb;
+      padding: 30px 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+  </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">PCI Gonda</div>
+      <nav>
+        <div class="menu-toggle" id="menuToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul id="menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="addmission.html">Admission</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1>Apply for Admission</h1>
+      <p>Secure Your Seat & Begin Your Tech Journey Today</p>
+      <div class="hero-cards">
+        <div class="card" data-aos="fade-up">
+          <h3>Job-Oriented Courses</h3>
+          <p>Build your future with certified programs in IT, Tally, Typing, and
+            more.</p>
+        </div>
+        <div class="card" data-aos="fade-up" data-aos-delay="100">
+          <h3>Expert Trainers</h3>
+          <p>Learn from experienced professionals with practical project
+            knowledge.</p>
+        </div>
+        <div class="card" data-aos="fade-up" data-aos-delay="200">
+          <h3>Placement Support</h3>
+          <p>Get assistance in interviews, resume building, and job referrals
+            post-training.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 data-aos="zoom-in">Admission Form</h2>
+      <div class="form-box" data-aos="fade-up">
+        <form id="admissionForm">
+          <input type="text" placeholder="Full Name" required />
+          <input type="email" placeholder="Email Address" required />
+          <input type="tel" placeholder="Mobile Number" required />
+          <select required>
+            <option value>Select Course</option>
+            <option>DCA</option>
+            <option>ADCA</option>
+            <option>CCC</option>
+            <option>Tally + GST</option>
+            <option>MS Office</option>
+            <option>Typing</option>
+          </select>
+          <input type="file" accept=".jpg,.png,.pdf" required />
+          <textarea rows="4" placeholder="Your Message / Query..."></textarea>
+          <button type="submit">Submit Application</button>
+          <div class="success-msg" id="successMessage">Thank you! Your
+            application has been submitted.</div>
+        </form>
+      </div>
+    </section>
+
+    <div class="sticky-cta" id="stickyCta">
+      🎯 Ready to Join PCI? Fill the Admission Form Above!
+    </div>
+
+    <footer>
+      <p>&copy; 2025 Progress Computer Institute (PCI), Gonda | Designed by
+        Himanshu Dwivedi</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init();</script>
+    <script>
+    // Sticky CTA
+    window.addEventListener("scroll", () => {
+      const cta = document.getElementById("stickyCta");
+      cta.style.display = window.scrollY > 500 ? "block" : "none";
+    });
+
+    // Success Message
+    document.getElementById("admissionForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      document.getElementById("successMessage").style.display = "block";
+      this.reset();
+    });
+
+    // Toggle Menu
+    const menuToggle = document.getElementById("menuToggle");
+    const menu = document.getElementById("menu");
+
+    menuToggle.addEventListener("click", () => {
+      menu.classList.toggle("open");
+    });
+  </script>
+  </body>
+</html>

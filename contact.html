@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PCI Gonda - Contact Us</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: white;
+    }
+    header {
+      padding: 20px 40px;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .logo {
+      color: #00ffff;
+      font-weight: bold;
+      font-size: 24px;
+    }
+    .menu-toggle {
+      display: none;
+      font-size: 28px;
+      color: #00ffff;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    nav {
+      width: auto;
+      position: relative;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    nav ul li a:hover {
+      color: #00ffff;
+    }
+
+    /* Responsive Nav Styles */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+      nav {
+        width: 100%;
+      }
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.95);
+        padding: 20px;
+        border-radius: 10px;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+      }
+      nav ul.active {
+        display: flex;
+      }
+    }
+
+    .section {
+      padding: 80px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .section h2 {
+      font-size: 36px;
+      color: #00ffff;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .contact-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: space-between;
+    }
+    .contact-info,
+    .contact-form {
+      background: rgba(255,255,255,0.1);
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      padding: 30px;
+      box-shadow: 0 0 15px rgba(0,255,255,0.1);
+      flex: 1 1 45%;
+    }
+    .contact-info p {
+      font-size: 16px;
+      margin: 10px 0;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+    .contact-form button {
+      background: #00ffff;
+      color: #000;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .map {
+      margin-top: 40px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0,255,255,0.2);
+    }
+    iframe {
+      width: 100%;
+      height: 350px;
+      border: none;
+    }
+    footer {
+      background: #111;
+      color: #bbb;
+      text-align: center;
+      padding: 40px 20px;
+      margin-top: 60px;
+    }
+
+    @media (max-width: 768px) {
+      .contact-container {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .section h2 {
+        font-size: 28px;
+      }
+      .contact-form button {
+        width: 100%;
+      }
+    }
+  </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">PCI Gonda</div>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+      <nav>
+        <ul id="navList">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="addmission.html">Admission</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="section" data-aos="fade-up">
+      <h2>Get in Touch with Us</h2>
+      <div class="contact-container">
+        <div class="contact-info">
+          <p><strong>📧 Email:</strong> tiwariramji345@gmail.com</p>
+          <p><strong>📞 Phone:</strong> +91-8887613510</p>
+          <p><strong>📍 Address:</strong> Porterganj, Pathwalia, Gonda, Uttar
+            Pradesh - 271001</p>
+          <p><strong>🕐 Timing:</strong> Mon - Sat: 9:00 AM to 6:00 PM</p>
+        </div>
+        <div class="contact-form">
+          <form>
+            <input type="text" placeholder="Your Name" required />
+            <input type="email" placeholder="Your Email" required />
+            <textarea rows="5" placeholder="Your Message..."
+              required></textarea>
+            <button type="submit">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <div class="map" data-aos="fade-up">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.363010013121!2d81.98164527593507!3d26.765600062611704!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399a9bcdf4c7e6df%3A0x2b979c2f9b9d61e6!2sGonda%2C%20Uttar%20Pradesh%20271001!5e0!3m2!1sen!2sin!4v1700000000000"
+        allowfullscreen></iframe>
+    </div>
+
+    <footer>
+      <p>&copy; 2025 Progress Computer Institute (PCI), Gonda | Designed by
+        Himanshu Dwivedi</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    AOS.init();
+    function toggleMenu() {
+      document.getElementById('navList').classList.toggle('active');
+    }
+  </script>
+  </body>
+</html>

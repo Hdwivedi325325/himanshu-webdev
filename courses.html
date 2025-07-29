@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Courses - PCI Gonda</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+      rel="stylesheet" />
+    <style>
+    /* === Reuse your site's theme CSS === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: white;
+    }
+    header {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      backdrop-filter: blur(10px);
+      flex-wrap: wrap;
+    }
+    header .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #00FFFF;
+    }
+    .menu-toggle {
+      display: none;
+      font-size: 28px;
+      background: none;
+      border: none;
+      color: #00ffff;
+      cursor: pointer;
+    }
+    nav {
+      width: 100%;
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    nav ul li a:hover {
+      color: #00FFFF;
+    }
+
+    .hero {
+      height: 60vh;
+      background: url('https://images.unsplash.com/photo-1581090700227-1c44c1d26fcd') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    .hero h1 {
+      font-size: 42px;
+      color: #00ffff;
+      text-shadow: 2px 2px #000;
+    }
+    .hero p {
+      font-size: 20px;
+      color: #fff;
+      margin-top: 10px;
+    }
+
+    .section {
+      padding: 70px 50px;
+      text-align: center;
+    }
+    .section h2 {
+      font-size: 36px;
+      margin-bottom: 30px;
+      color: #00FFFF;
+    }
+
+    .courses-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+    .course-box {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+      border-radius: 12px;
+      padding: 25px;
+      width: 300px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+    }
+    .course-box:hover {
+      transform: translateY(-10px);
+      background: maroon;
+      cursor: pointer;
+    }
+    .course-box h3 {
+      color: #00ffff;
+      margin-bottom: 10px;
+    }
+    .course-box p {
+      color: #ddd;
+      font-size: 15px;
+    }
+
+    footer {
+      background: #111;
+      color: #bbb;
+      text-align: center;
+      padding: 40px 20px;
+      margin-top: 50px;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+      nav ul {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        background: rgba(0, 0, 0, 0.9);
+        padding: 15px;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 998;
+        border-radius: 0 0 10px 10px;
+      }
+      nav ul.active {
+        display: flex;
+      }
+      .course-box {
+        width: 100%;
+        max-width: 330px;
+      }
+    }
+  </style>
+  </head>
+  <body>
+
+    <!-- Navbar -->
+    <header>
+      <div class="logo">PCI Gonda</div>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="addmission.html">Admission</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content" data-aos="fade-up">
+        <h1>Explore Our Courses</h1>
+        <p>Find the perfect course to jumpstart your IT career.</p>
+      </div>
+    </section>
+
+    <!-- Course Listings -->
+    <section class="section" data-aos="fade-up">
+      <h2>Available Courses</h2>
+      <div class="courses-grid">
+
+        <div class="course-box" data-aos="zoom-in">
+          <h3>DCA</h3>
+          <p>Diploma in Computer Application – Learn MS Office,
+            Internet, Basic Hardware, and more.</p>
+        </div>
+
+        <div class="course-box" data-aos="zoom-in" data-aos-delay="100">
+          <h3>ADCA</h3>
+          <p>Advanced Diploma in Computer Application – Includes DCA +
+            HTML, Tally, and Programming Basics.</p>
+        </div>
+
+        <div class="course-box" data-aos="zoom-in" data-aos-delay="200">
+          <h3>CCC (NIELIT)</h3>
+          <p>Government-certified basic computer course – essential
+            for government jobs.</p>
+        </div>
+
+        <div class="course-box" data-aos="zoom-in" data-aos-delay="300">
+          <h3>Tally + GST</h3>
+          <p>Master accounting with real-world GST billing & tax
+            practices.</p>
+        </div>
+
+        <div class="course-box" data-aos="zoom-in">
+          <h3>MS Office Pro</h3>
+          <p>Specialized training in Word, Excel, PowerPoint – with
+            live exercises.</p>
+        </div>
+
+        <div class="course-box" data-aos="zoom-in" data-aos-delay="100">
+          <h3>Hindi & English Typing</h3>
+          <p>KrutiDev + Inscript and English Typing with
+            speed-building software support.</p>
+        </div>
+
+        <div class="course-box" data-aos="zoom-in" data-aos-delay="200">
+          <h3>Internet & Emailing</h3>
+          <p>Get confident with digital tools like emails, UPI, online
+            forms, e-services, and more.</p>
+        </div>
+
+        <div class="course-box" data-aos="zoom-in" data-aos-delay="300">
+          <h3>Web Design Basics</h3>
+          <p>Learn HTML, CSS, and responsive layouts – perfect for
+            beginners.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div>
+        <h3 style="color: #00ffff;">Progress Computer Institute (PCI) -
+          Gonda</h3>
+        <p>Empowering students with certified computer courses since
+          2017</p>
+        <hr style="border-color: #444; margin: 20px auto; width: 60%;">
+        <p>&copy; 2025 PCI Gonda | Created by <strong
+            style="color: #00ffff;">Himanshu Dwivedi</strong></p>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    AOS.init();
+    function toggleMenu() {
+      const nav = document.querySelector("nav ul");
+      nav.classList.toggle("active");
+    }
+  </script>
+
+  </body>
+</html>

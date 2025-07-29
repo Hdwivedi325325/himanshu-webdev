@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About PCI - Progress Computer Institute</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        color: white;
+      }
+      header {
+        background: rgba(0, 0, 0, 0.6);
+        padding: 20px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 999;
+        backdrop-filter: blur(10px);
+      }
+      .logo {
+        font-size: 24px;
+        font-weight: bold;
+        color: #00ffff;
+      }
+      .menu-toggle {
+        display: none;
+        font-size: 28px;
+        background: none;
+        border: none;
+        color: #00ffff;
+        cursor: pointer;
+      }
+      nav {
+        flex-grow: 1;
+        display: flex;
+        justify-content: flex-end;
+      }
+      nav ul {
+        display: flex;
+        list-style: none;
+        gap: 30px;
+        align-items: center;
+      }
+      nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        transition: 0.3s;
+      }
+      nav ul li a:hover {
+        color: #00ffff;
+      }
+      .hero {
+        height: 60vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+      }
+      .hero::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+      }
+      .hero-content {
+        position: relative;
+        z-index: 2;
+      }
+      .hero h1 {
+        font-size: 42px;
+        color: #00ffff;
+        text-shadow: 2px 2px #000;
+      }
+      .hero p {
+        font-size: 20px;
+        color: #ffffff;
+        margin-top: 10px;
+      }
+      .section {
+        padding: 80px 50px;
+        text-align: center;
+      }
+      .section h2 {
+        font-size: 36px;
+        margin-bottom: 30px;
+        color: #00ffff;
+      }
+      .features {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 30px;
+      }
+      .feature-box {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        padding: 25px;
+        border-radius: 15px;
+        width: 280px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s, background 0.3s;
+      }
+      .feature-box:hover {
+        transform: scale(1.08);
+        background-color: maroon;
+        cursor: pointer;
+      }
+      .feature-box h4 {
+        color: #fff;
+        margin-bottom: 10px;
+      }
+      .feature-box p {
+        color: #ddd;
+      }
+      .admission-cta {
+        background: rgba(0, 255, 255, 0.1);
+        padding: 50px;
+        border-radius: 15px;
+        margin: 40px auto;
+        max-width: 800px;
+        text-align: center;
+      }
+      .admission-cta h3 {
+        color: #00ffff;
+        margin-bottom: 20px;
+      }
+      .admission-cta a {
+        padding: 12px 30px;
+        background: #00ffff;
+        color: #000;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: 0.3s;
+      }
+      .admission-cta a:hover {
+        background: #00cccc;
+      }
+      footer {
+        background: #111;
+        color: #bbb;
+        text-align: center;
+        padding: 40px 20px;
+        margin-top: 50px;
+      }
+      @media (max-width: 768px) {
+        .menu-toggle {
+          display: block;
+        }
+        nav ul {
+          position: absolute;
+          top: 70px;
+          right: 40px;
+          background: rgba(0, 0, 0, 0.95);
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 20px;
+          gap: 15px;
+          border-radius: 10px;
+          display: none;
+        }
+        nav ul.active {
+          display: flex;
+        }
+        nav ul li {
+          width: 100%;
+        }
+        .hero h1 {
+          font-size: 28px;
+        }
+        .section {
+          padding: 50px 20px;
+        }
+        .feature-box {
+          width: 100%;
+          max-width: 320px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">PCI Gonda</div>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+      <nav>
+        <ul id="navList">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="addmission.html">Admission</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero"
+      style="background-image: url('https://images.unsplash.com/photo-1603575448363-9296f20f61ef');">
+      <div class="hero-content" data-aos="fade-up">
+        <h1>About <span style="color: #00ffff">Progress Computer
+            Institute</span></h1>
+        <p>Building Digital Futures Since 2017</p>
+      </div>
+    </section>
+
+    <section class="section" data-aos="fade-up">
+      <h2>Who We Are</h2>
+      <p style="max-width: 800px; margin: auto;">
+        Progress Computer Institute (PCI), located in the heart of Gonda, is a
+        pioneer in IT and computer education. Founded with a vision to empower
+        youth with digital skills, PCI has consistently delivered high-quality,
+        affordable, and job-oriented training to thousands of students since
+        2017.
+      </p>
+    </section>
+
+    <section class="section" data-aos="fade-right">
+      <h2>Our Mission & Vision</h2>
+      <div class="features">
+        <div class="feature-box" data-aos="zoom-in-up">
+          <h4>🎯 Our Mission</h4>
+          <p>To nurture digitally empowered students by offering modern and
+            hands-on computer education tailored to real-world careers.</p>
+        </div>
+        <div class="feature-box" data-aos="zoom-in-up" data-aos-delay="200">
+          <h4>🌐 Our Vision</h4>
+          <p>To be the most trusted and respected institute in Eastern UP for
+            computer education and career transformation.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" data-aos="fade-up">
+      <h2>Why PCI is Trusted by Thousands</h2>
+      <div class="features">
+        <div class="feature-box">
+          <h4>✔ Experienced Trainers</h4>
+          <p>Learn from certified professionals with years of industry and
+            teaching experience.</p>
+        </div>
+        <div class="feature-box">
+          <h4>✔ Modern Curriculum</h4>
+          <p>Updated content aligned with current industry standards and
+            demands.</p>
+        </div>
+        <div class="feature-box">
+          <h4>✔ Placement Support</h4>
+          <p>PCI assists you not only in learning but also in building your
+            career.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" data-aos="fade-up">
+      <h2>What Students Say</h2>
+      <div class="features">
+        <div class="feature-box" data-aos="zoom-in">
+          <p>"PCI helped me transform from a beginner to a confident job-seeker with strong IT skills. Best institute in Gonda!"</p>
+          <h4>- Himanshu Dwivedi</h4>
+        </div>
+        <div class="feature-box" data-aos="zoom-in" data-aos-delay="200">
+          <p>"The practical training and live projects gave me the experience I needed. I'm now placed in a reputed firm."</p>
+          <h4>- Anuj Mishra</h4>
+        </div>
+      </div>
+    </section>
+
+    <section class="admission-cta section" data-aos="flip-left">
+      <h3>Inspired to Join PCI?</h3>
+      <a href="index.html#admission">Apply for Admission</a>
+    </section>
+
+    <footer>
+      <div>
+        <h3 style="color: #00ffff">Progress Computer Institute (PCI) -
+          Gonda</h3>
+        <p>Empowering students with certified computer courses since 2017</p>
+        <hr style="border-color: #444; margin: 20px auto; width: 60%" />
+        <p>&copy; 2025 PCI Gonda | Created by <strong
+            style="color: #00ffff">Himanshu Dwivedi</strong></p>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+      function toggleMenu() {
+        document.getElementById('navList').classList.toggle('active');
+      }
+    </script>
+  </body>
+</html>

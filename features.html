@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PCI Features - Why Choose Us</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet">
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        color: white;
+        overflow-x: hidden;
+      }
+      header {
+        padding: 20px 40px;
+        background: rgba(0,0,0,0.6);
+        backdrop-filter: blur(10px);
+        position: sticky;
+        top: 0;
+        z-index: 999;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .logo {
+        color: #00ffff;
+        font-weight: bold;
+        font-size: 24px;
+      }
+      .menu-toggle {
+        display: none;
+        font-size: 28px;
+        color: #00ffff;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+      nav {
+        width: auto;
+        position: relative;
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 25px;
+      }
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        transition: 0.3s;
+      }
+      nav ul li a:hover {
+        color: #00ffff;
+      }
+      .hero {
+        height: 90vh;
+        background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d') no-repeat center center/cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        position: relative;
+      }
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0,0,0,0.6);
+      }
+      .hero-content {
+        position: relative;
+        z-index: 1;
+      }
+      .hero h1 {
+        font-size: 48px;
+        color: #00ffff;
+      }
+      .hero p {
+        font-size: 20px;
+        margin-top: 10px;
+      }
+      .section {
+        padding: 80px 40px;
+        text-align: center;
+      }
+      .section h2 {
+        font-size: 36px;
+        margin-bottom: 40px;
+        color: #00ffff;
+      }
+      .features {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+      }
+      .feature-box {
+        background: rgba(255,255,255,0.1);
+        backdrop-filter: blur(12px);
+        border: 2px solid transparent;
+        border-radius: 20px;
+        padding: 30px;
+        width: 280px;
+        transition: 0.4s ease;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        cursor: pointer;
+      }
+      .feature-box:hover {
+        transform: scale(1.05);
+        border-image: linear-gradient(45deg, #00ffff, #ff00ff) 1;
+      }
+      .feature-box i {
+        font-size: 32px;
+        color: #00ffff;
+        margin-bottom: 15px;
+      }
+      .feature-box h3 {
+        color: #fff;
+        margin-bottom: 10px;
+      }
+      .feature-box p {
+        color: #ccc;
+        font-size: 14px;
+      }
+      .counters {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 40px;
+        margin-top: 60px;
+      }
+      .counter-box {
+        font-size: 32px;
+        font-weight: bold;
+        color: #00ffff;
+      }
+      .cta {
+        background: rgba(0, 255, 255, 0.1);
+        padding: 50px;
+        margin: 60px auto;
+        max-width: 700px;
+        border-radius: 20px;
+      }
+      .cta h3 {
+        margin-bottom: 20px;
+        color: #00ffff;
+      }
+      .cta a {
+        display: inline-block;
+        background: #00ffff;
+        color: black;
+        padding: 12px 30px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: 600;
+      }
+      footer {
+        background: #111;
+        color: #bbb;
+        padding: 30px 20px;
+        text-align: center;
+      }
+      .popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #222;
+        color: white;
+        padding: 40px;
+        border-radius: 15px;
+        z-index: 9999;
+        display: none;
+        max-width: 400px;
+        box-shadow: 0 0 20px rgba(0,255,255,0.5);
+      }
+      .popup button {
+        margin-top: 20px;
+        background: #00ffff;
+        color: #000;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      @media (max-width: 768px) {
+        .menu-toggle {
+          display: block;
+        }
+        nav {
+          width: 100%;
+        }
+        nav ul {
+          display: none;
+          flex-direction: column;
+          background: rgba(0, 0, 0, 0.95);
+          padding: 20px;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          border-radius: 10px;
+          z-index: 998;
+        }
+        nav ul.active {
+          display: flex;
+        }
+        nav ul li {
+          padding: 10px 0;
+          text-align: center;
+        }
+      }
+      @media (max-width: 480px) {
+        .hero h1 {
+          font-size: 32px;
+        }
+        .section h2 {
+          font-size: 28px;
+        }
+        .cta {
+          padding: 30px 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">PCI Gonda</div>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+      <nav>
+        <ul id="navList">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="#">Features</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="admission.html">Admission</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-content" data-aos="fade-up">
+        <h1>Why Choose PCI?</h1>
+        <p>Empowering Gonda's Future in IT Education</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 data-aos="zoom-in">Our Core Features</h2>
+      <div class="features">
+        <div class="feature-box" data-aos="fade-up"
+          onclick="showPopup('Certified Trainers with practical knowledge in every domain.')">
+          <i class="fas fa-chalkboard-teacher"></i>
+          <h3>Certified Trainers</h3>
+          <p>Learn from experienced, certified professionals.</p>
+        </div>
+        <div class="feature-box" data-aos="fade-up" data-aos-delay="100"
+          onclick="showPopup('Practice-based labs that ensure real-time exposure.')">
+          <i class="fas fa-flask"></i>
+          <h3>Practical Labs</h3>
+          <p>Hands-on training with real-world projects.</p>
+        </div>
+        <div class="feature-box" data-aos="fade-up" data-aos-delay="200"
+          onclick="showPopup('Government recognized certifications that build your resume.')">
+          <i class="fas fa-certificate"></i>
+          <h3>Govt Certifications</h3>
+          <p>NIELIT, NSDC, ISO accredited courses.</p>
+        </div>
+        <div class="feature-box" data-aos="fade-up" data-aos-delay="300"
+          onclick="showPopup('Best in-class education at a minimal fee.')">
+          <i class="fas fa-coins"></i>
+          <h3>Affordable Fees</h3>
+          <p>Best education at minimum cost.</p>
+        </div>
+        <div class="feature-box" data-aos="fade-up" data-aos-delay="400"
+          onclick="showPopup('Job support and placement assistance after your training.')">
+          <i class="fas fa-briefcase"></i>
+          <h3>Job Support</h3>
+          <p>Placement & career guidance after training.</p>
+        </div>
+        <div class="feature-box" data-aos="fade-up" data-aos-delay="500"
+          onclick="showPopup('Updated syllabus with latest industry tools & techniques.')">
+          <i class="fas fa-book-open"></i>
+          <h3>Updated Curriculum</h3>
+          <p>Industry-aligned syllabus & tools.</p>
+        </div>
+      </div>
+
+      <div class="counters">
+        <div class="counter-box" data-aos="zoom-in">
+          <div><span id="students">0</span>+</div>
+          <p>Students Trained</p>
+        </div>
+        <div class="counter-box" data-aos="zoom-in" data-aos-delay="100">
+          <div><span id="placements">0</span>+</div>
+          <p>Placements Achieved</p>
+        </div>
+        <div class="counter-box" data-aos="zoom-in" data-aos-delay="200">
+          <div><span id="years">0</span>+</div>
+          <p>Years of Excellence</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="popup" id="popupBox">
+      <p id="popupText"></p>
+      <button onclick="closePopup()">Close</button>
+    </div>
+
+    <section class="cta" data-aos="flip-up">
+      <h3>Why Wait? Enroll in PCI Today!</h3>
+      <a href="index.html#admission">Get Started</a>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Progress Computer Institute (PCI), Gonda | Designed by
+        Himanshu Dwivedi</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+      const animateCounter = (id, target) => {
+        let count = 0;
+        const interval = setInterval(() => {
+          count += Math.ceil(target / 100);
+          if (count >= target) {
+            document.getElementById(id).textContent = target;
+            clearInterval(interval);
+          } else {
+            document.getElementById(id).textContent = count;
+          }
+        }, 30);
+      };
+      window.addEventListener("load", () => {
+        animateCounter("students", 1500);
+        animateCounter("placements", 950);
+        animateCounter("years", 8);
+      });
+      function showPopup(text) {
+        document.getElementById('popupText').innerText = text;
+        document.getElementById('popupBox').style.display = 'block';
+      }
+      function closePopup() {
+        document.getElementById('popupBox').style.display = 'none';
+      }
+      function toggleMenu() {
+        document.getElementById("navList").classList.toggle("active");
+      }
+    </script>
+  </body>
+</html>
